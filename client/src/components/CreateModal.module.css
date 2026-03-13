@@ -1,0 +1,66 @@
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+
+.modal {
+  background: #10101a; border: 1px solid #1c1c2e;
+  border-radius: 20px; width: 100%; max-width: 520px;
+  max-height: 90vh; overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 28px 0;
+}
+.header h2 { font-size: 1.2rem; font-weight: 800; }
+.close {
+  background: #14141f; border: 1px solid #1c1c2e;
+  border-radius: 50%; color: #9090b0;
+  font-size: 1.2rem; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.close:hover { color: #ef4444; }
+
+.form { padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 14px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 0.8rem; color: #9090b0; font-weight: 600; }
+.field input, .field select, .field textarea {
+  background: #14141f; border: 1px solid #1c1c2e;
+  border-radius: 10px; color: #f0f0f8;
+  font-size: 0.9rem; padding: 10px 14px; outline: none;
+  transition: border-color 0.2s; resize: none;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #818cf8; }
+.field select option { background: #14141f; }
+
+.row { display: flex; gap: 12px; }
+.row .field { flex: 1; }
+
+.error {
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 8px; color: #f87171; font-size: 0.83rem; padding: 10px 12px;
+}
+
+.btns { display: flex; gap: 10px; margin-top: 4px; }
+.cancel {
+  flex: 1; background: transparent; border: 1px solid #1c1c2e;
+  border-radius: 10px; color: #9090b0; font-size: 0.9rem; padding: 12px;
+  transition: border-color 0.2s;
+}
+.cancel:hover { border-color: #818cf8; }
+.submit {
+  flex: 2; background: linear-gradient(135deg,#6366f1,#818cf8);
+  border: none; border-radius: 10px; color: #fff;
+  font-size: 0.9rem; font-weight: 700; padding: 12px;
+  transition: filter 0.2s;
+}
+.submit:hover    { filter: brightness(1.12); }
+.submit:disabled { opacity: 0.6; cursor: not-allowed; }

@@ -1,0 +1,127 @@
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 260px;
+  background: #0d0d18;
+  border-right: 1px solid #1c1c2e;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.brandWrap { display: flex; align-items: center; gap: 10px; }
+.brandIcon  { font-size: 1.6rem; }
+.brandName  { font-size: 1.3rem; font-weight: 800; background: linear-gradient(90deg,#818cf8,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
+.userBox {
+  display: flex; align-items: center; gap: 10px;
+  background: #14141f; border: 1px solid #1c1c2e;
+  border-radius: 12px; padding: 12px;
+}
+.avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(135deg,#6366f1,#818cf8);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+}
+.userName  { font-size: 0.88rem; font-weight: 700; }
+.userEmail { font-size: 0.72rem; color: #6b6b88; }
+
+.nav { display: flex; flex-direction: column; gap: 4px; }
+.navBtn {
+  background: transparent; border: none; color: #9090b0;
+  border-radius: 10px; padding: 10px 14px;
+  font-size: 0.88rem; font-weight: 600; text-align: left;
+  display: flex; align-items: center; gap: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+.navBtn:hover { background: #14141f; color: #f0f0f8; }
+.navBtn.active { background: rgba(99,102,241,0.15); color: #818cf8; }
+
+.stats { display: flex; gap: 8px; }
+.statBox {
+  flex: 1; background: #14141f; border: 1px solid #1c1c2e;
+  border-radius: 10px; padding: 10px 8px; text-align: center;
+}
+.statVal { display: block; font-size: 1.2rem; font-weight: 800; color: #818cf8; }
+.statLbl { display: block; font-size: 0.65rem; color: #6b6b88; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+
+.createBtn {
+  background: linear-gradient(135deg,#6366f1,#818cf8);
+  border: none; border-radius: 10px; color: #fff;
+  font-size: 0.9rem; font-weight: 700; padding: 12px;
+  transition: filter 0.2s;
+}
+.createBtn:hover { filter: brightness(1.12); }
+
+.logoutBtn {
+  background: transparent; border: 1px solid #1c1c2e;
+  border-radius: 10px; color: #6b6b88;
+  font-size: 0.85rem; padding: 10px;
+  transition: border-color 0.2s, color 0.2s;
+  margin-top: auto;
+}
+.logoutBtn:hover { border-color: #ef4444; color: #ef4444; }
+
+.credit { font-size: 0.72rem; color: #2a2a3e; text-align: center; }
+.credit strong { color: #4a4a6e; }
+
+/* ── Main ── */
+.main { flex: 1; padding: 28px 32px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; }
+
+.topBar { display: flex; align-items: center; gap: 12px; }
+.searchWrap { position: relative; flex: 1; }
+.searchIcon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; }
+.search {
+  width: 100%; background: #10101a; border: 1px solid #1c1c2e;
+  border-radius: 12px; color: #f0f0f8; font-size: 0.9rem;
+  padding: 12px 14px 12px 40px; outline: none;
+  transition: border-color 0.2s;
+}
+.search:focus { border-color: #818cf8; }
+
+.catRow { display: flex; gap: 8px; flex-wrap: wrap; }
+.catBtn {
+  background: #10101a; border: 1px solid #1c1c2e;
+  border-radius: 50px; color: #9090b0;
+  font-size: 0.8rem; font-weight: 600; padding: 7px 16px;
+  transition: all 0.2s;
+}
+.catBtn:hover { border-color: #818cf8; color: #818cf8; }
+.catBtn.catActive { background: rgba(99,102,241,0.15); border-color: #818cf8; color: #818cf8; }
+
+.sectionHeader { display: flex; align-items: center; justify-content: space-between; }
+.sectionHeader h2 { font-size: 1.1rem; font-weight: 700; }
+.count { font-size: 0.8rem; color: #6b6b88; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+
+.empty {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 12px; padding: 80px 0;
+  color: #6b6b88;
+}
+.empty span { font-size: 3rem; }
+.empty p    { font-size: 1rem; }
+
+.toast {
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  background: #1a1a2e; border: 1px solid #818cf8;
+  border-radius: 50px; padding: 12px 24px;
+  font-size: 0.88rem; font-weight: 600; color: #f0f0f8;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  animation: slideUp 0.3s ease;
+  z-index: 999;
+}
+@keyframes slideUp { from { opacity:0; transform: translateX(-50%) translateY(16px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { padding: 16px; }
+}
